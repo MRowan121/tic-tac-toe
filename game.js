@@ -24,6 +24,7 @@ class Game {
 
     switchActivePlayer() {
         for(var i = 0; i < this.players.length; i++) {
+            this.checkForWinner(this.players[i])
             this.players[i].activePlayer = !this.players[i].activePlayer;
         };
     };
@@ -38,6 +39,24 @@ class Game {
             };
         };
         this.switchActivePlayer();
+        this.checkForDraw();
+    };
+
+    checkForWinner(activePlayer) {
+        for(var i = 0; i < this.winning.length; i++) {
+            if(activePlayer.tokenPlacement.includes(this.winning[i][0]) 
+            && activePlayer.tokenPlacement.includes(this.winning[i][1]) 
+            && activePlayer.tokenPlacement.includes(this.winning[i][2])) {
+                activePlayer.increaseWins();
+                console.log(`${activePlayer.id} Wins!`)
+            };
+        };
+    };
+
+    checkForDraw() {
+        if(this.turnNumber === 10) {
+            console.log(`DRAW!`)
+        };
     };
 };
 
