@@ -21,6 +21,12 @@ class Game {
     addPlayers(playerDetails) {
         this.players.push(playerDetails)
     };
+
+    switchActivePlayer() {
+        for(var i = 0; i < this.players.length; i++) {
+            this.players[i].activePlayer = !this.players[i].activePlayer;
+        };
+    };
 };
 
 module.exports = Game;
