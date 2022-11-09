@@ -27,6 +27,18 @@ class Game {
             this.players[i].activePlayer = !this.players[i].activePlayer;
         };
     };
+
+    takeTurn(num) {
+        for(var i = 0; i < this.players.length; i++) {
+            if(this.gameBoard[num] === '' && this.players[i].activePlayer === true) {
+                this.gameBoard.splice(num, 1, this.players[i].token);
+                this.players[i].tokenPlacement.push(num);
+                this.turnNumber = this.turnNumber + 1;
+                console.log(this.gameBoard);
+            };
+        };
+        this.switchActivePlayer();
+    };
 };
 
 module.exports = Game;
