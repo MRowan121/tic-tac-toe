@@ -4,6 +4,7 @@ class Player {
         this.token = playerDetails.token;
         this.wins = playerDetails.wins || 0;
         this.activePlayer = false;
+        this.tokenPlacement = [];
     };
 
     increaseWins() {
