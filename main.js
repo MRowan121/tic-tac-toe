@@ -17,3 +17,11 @@ game.addPlayers(playerTwo);
 
 playerOneToken.innerHTML = game.players[0].token;
 playerTwoToken.innerHTML = game.players[1].token;
+
+for(var i = 0; i < allBoxes.length; i++) {
+    allBoxes[i].index = i;
+    allBoxes[i].addEventListener('click', function(event) {
+        game.takeTurn(event.target.index);
+        event.target.innerText = game.gameBoard[event.target.index];
+    })
+}
