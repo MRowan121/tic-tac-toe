@@ -1,9 +1,6 @@
-var Player = require('./player')
-
 class Game {
     constructor() {
         this.players = [];
-        this.gameNumber = 1;
         this.turnNumber = 1;
         this.gameBoard = ['','','','','','','','',''];
         this.winning = [
@@ -16,6 +13,7 @@ class Game {
             [0, 4, 8],
             [2, 4, 6],
         ];
+        this.winner = undefined;
     };
 
     addPlayers(playerDetails) {
@@ -24,7 +22,6 @@ class Game {
 
     switchActivePlayer() {
         for(var i = 0; i < this.players.length; i++) {
-            this.checkForWinner(this.players[i])
             this.players[i].activePlayer = !this.players[i].activePlayer;
         };
     };
@@ -34,52 +31,30 @@ class Game {
             if(this.gameBoard[num] === '' && this.players[i].activePlayer === true) {
                 this.gameBoard.splice(num, 1, this.players[i].token);
                 this.players[i].tokenPlacement.push(num);
-                this.turnNumber = this.turnNumber + 1;
-                console.log(this.gameBoard);
-            };
-        };
-        this.switchActivePlayer();
-        this.checkForDraw();
-    };
-
-    checkForWinner(activePlayer) {
-        for(var i = 0; i < this.winning.length; i++) {
-            if(activePlayer.tokenPlacement.includes(this.winning[i][0]) 
-            && activePlayer.tokenPlacement.includes(this.winning[i][1]) 
-            && activePlayer.tokenPlacement.includes(this.winning[i][2])) {
-                activePlayer.increaseWins();
-                this.resetBoard();
-                console.log(`${activePlayer.id} Wins!`)
+                this.turnNumber ++;
             };
         };
     };
 
-    checkForDraw() {
-        if(this.turnNumber === 10) {
-            this.resetBoard();
-            console.log(`DRAW!`)
+    checkForWinner() {
+        for(var i = 0; i < this.players.length; i++) {
+            for(var j = 0; j < this.winning.length; i++) {
+                if(this.players[i].tokenPlacement.includes(this.winning[j][0]) 
+                && this.players[i].tokenPlacement.includes(this.winning[j][1]) 
+                && this.players[i].tokenPlacement.includes(this.winning[j][2])) {
+                    this.players[i].increaseWins();
+                    this.winner = this.players[i].token;
+                };
+            };
         };
     };
 
     resetBoard() {
-        this.gameNumber = this.gameNumber + 1;
         for(var i = 0; i < this.players.length; i++) {
-            if(this.gameNumber > 3) {
-                this.gameNumber = 1;
-                this.turnNumber = 1;
-                this.players[i].tokenPlacement = [];
-                // Need to understand why line 71 isn't clearing out both players wins.
-                // this.players[i].wins = 0;
-                this.players[0].wins = 0;
-                this.players[1].wins = 0;
-                this.gameBoard = ['','','','','','','','',''];
-            } else {
-                this.turnNumber = 1;
-                this.players[i].tokenPlacement = [];
-                this.gameBoard = ['','','','','','','','',''];
-            }
+            this.turnNumber = 1;
+            this.players[i].tokenPlacement = [];
+            this.gameBoard = ['','','','','','','','',''];
+            this.winner = undefined;
         }
     }
 };
-
-module.exports = Game;
