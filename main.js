@@ -40,3 +40,12 @@ function resetScreen() {
         allBoxes[i].innerText = '';
     };
 };
+
+function switchActiveToken() {
+    for(var i = 0; i < game.players.length; i++) {
+        if(game.players[i].activePlayer === true) {
+            activeToken = game.players[i].token;
+            turnDisplay.innerText = `It's ${activeToken}'s turn!`;
+        };
+    };
+};
