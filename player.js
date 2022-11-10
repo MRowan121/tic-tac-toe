@@ -8,9 +8,6 @@ class Player {
     };
 
     increaseWins() {
-        this.wins = this.wins + 1;
+        this.wins ++;
     };
 };
-
-
-module.exports = Player;
