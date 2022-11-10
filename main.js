@@ -24,21 +24,31 @@ for(var i = 0; i < allBoxes.length; i++) {
         game.takeTurn(event.target.index);
         event.target.innerText = game.gameBoard[event.target.index];
         game.switchActivePlayer();
+        switchActiveToken();
         game.checkForWinner();
         if(game.winner !== undefined && game.turnNumber <=10) {
             turnDisplay.innerText = `${game.winner} wins!`
+            setTimeout( function() {
+                game.resetBoard();
+                resetScreen();
+            }, 1000);
         } else if(game.winner === undefined && game.turnNumber === 10) {
             turnDisplay.innerText = `It's a draw!`;
-        }
-        playerOneWins.innerText = `${game.players[0].wins} wins!`;
-        playerTwoWins.innerText = `${game.players[1].wins} wins!`;
-    });
+            setTimeout( function() {
+                game.resetBoard();
+                resetScreen();
+            }, 1000);
+        };
+        playerOneWins.innerHTML = `${game.players[0].wins} wins!`;
+        playerTwoWins.innerHTML = `${game.players[1].wins} wins!`;
+    }, false);
 };
 
 function resetScreen() {
     for(var i = 0; i < allBoxes.length; i++) {
         allBoxes[i].innerText = '';
     };
+    switchActiveToken();
 };
 
 function switchActiveToken() {
