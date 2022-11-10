@@ -34,3 +34,9 @@ for(var i = 0; i < allBoxes.length; i++) {
         playerTwoWins.innerText = `${game.players[1].wins} wins!`;
     });
 };
+
+function resetScreen() {
+    for(var i = 0; i < allBoxes.length; i++) {
+        allBoxes[i].innerText = '';
+    };
+};
