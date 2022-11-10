@@ -23,5 +23,14 @@ for(var i = 0; i < allBoxes.length; i++) {
     allBoxes[i].addEventListener('click', function(event) {
         game.takeTurn(event.target.index);
         event.target.innerText = game.gameBoard[event.target.index];
-    })
-}
+        game.switchActivePlayer();
+        game.checkForWinner();
+        if(game.winner !== undefined && game.turnNumber <=10) {
+            turnDisplay.innerText = `${game.winner} wins!`
+        } else if(game.winner === undefined && game.turnNumber === 10) {
+            turnDisplay.innerText = `It's a draw!`;
+        }
+        playerOneWins.innerText = `${game.players[0].wins} wins!`;
+        playerTwoWins.innerText = `${game.players[1].wins} wins!`;
+    });
+};
