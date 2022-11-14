@@ -3,7 +3,7 @@ class Game {
         this.players = [];
         this.turnNumber = 1;
         this.gameBoard = ['','','','','','','','',''];
-        this.winning = [
+        this.winCombo = [
             [0, 3, 6],
             [1, 4, 7],
             [2, 5, 8],
@@ -40,12 +40,12 @@ class Game {
 
     checkForWinner() {
         for(var i = 0; i < this.players.length; i++) {
-            for(var j = 0; j < this.winning.length; i++) {
-                if(this.players[i].tokenPlacement.includes(this.winning[j][0]) 
-                && this.players[i].tokenPlacement.includes(this.winning[j][1]) 
-                && this.players[i].tokenPlacement.includes(this.winning[j][2])) {
+            for(var j = 0; j < this.winCombo.length; j++) {
+                if(this.players[i].tokenPlacement.includes(this.winCombo[j][0]) 
+                && this.players[i].tokenPlacement.includes(this.winCombo[j][1]) 
+                && this.players[i].tokenPlacement.includes(this.winCombo[j][2])) {
                     this.players[i].increaseWins();
-                    this.winner = this.players[i].token;
+                    this.winner = this.players[i].token
                 };
             };
         };
