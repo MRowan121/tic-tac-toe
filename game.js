@@ -59,11 +59,9 @@ class Game {
     };
 
     resetBoard() {
-        for(var i = 0; i < this.players.length; i++) {
-            this.turnNumber = 1;
-            this.players[i].tokenPlacement = [];
-            this.gameBoard = ['','','','','','','','',''];
-            this.winner = undefined;
-        };
+        this.turnNumber = 1;
+        this.gameBoard = ['','','','','','','','',''];
+        this.winner = undefined;
+        this.draw = false;
     };
 };
