@@ -9,7 +9,6 @@ var playerTwoWins = document.querySelector('.player-two-wins')
 var game = new Game();
 var playerOne = new Player({id: 'Player One',token: '💩'});
 var playerTwo = new Player({id: 'Player Two', token: '🐐'});
-playerOne.activePlayer = true;
 var activeToken;
 
 game.addPlayers(playerOne);
@@ -48,7 +47,6 @@ function resetScreen() {
     for(var i = 0; i < allBoxes.length; i++) {
         allBoxes[i].innerText = '';
     };
-    switchActiveToken();
 };
 
 function switchActiveToken() {
