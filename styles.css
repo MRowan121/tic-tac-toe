@@ -41,7 +41,9 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 5.5vw;
+    font-size: 10vh;
+    height: 100%;
+    width: 100%;
 }
 .container-right {
     width: 25%;
