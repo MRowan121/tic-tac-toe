@@ -48,9 +48,15 @@ class Game {
             } else if(a === b && b === c) {
                 activePlayer.increaseWins();
                 this.winner = activePlayer.token;
-            }
-        }
-    }
+            };
+        };
+    };
+
+    checkForDraw() {
+        if(this.winner === undefined && this.turnNumber === 10) {
+            this.draw = true;
+        };
+    };
 
     resetBoard() {
         for(var i = 0; i < this.players.length; i++) {
@@ -58,6 +64,6 @@ class Game {
             this.players[i].tokenPlacement = [];
             this.gameBoard = ['','','','','','','','',''];
             this.winner = undefined;
-        }
-    }
+        };
+    };
 };
