@@ -32,8 +32,10 @@ class Game {
         for(var i = 0; i < this.players.length; i++) {
             if(this.gameBoard[num] === '' && this.players[i].activePlayer === true) {
                 this.gameBoard.splice(num, 1, this.players[i].token);
-                this.players[i].tokenPlacement.push(num);
                 this.turnNumber ++;
+                this.checkForWinner(this.players[i]);
+                this.checkForDraw();
+                this.switchActivePlayer();
             };
         };
     };
