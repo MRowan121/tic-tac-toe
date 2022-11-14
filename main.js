@@ -9,7 +9,6 @@ var playerTwoWins = document.querySelector('.player-two-wins')
 var game = new Game();
 var playerOne = new Player({id: 'Player One',token: '💩'});
 var playerTwo = new Player({id: 'Player Two', token: '🐐'});
-playerOne.activePlayer = true;
 var activeToken;
 
 game.addPlayers(playerOne);
@@ -17,38 +16,20 @@ game.addPlayers(playerTwo);
 
 playerOneToken.innerHTML = game.players[0].token;
 playerTwoToken.innerHTML = game.players[1].token;
+turnDisplay.innerHTML = `It's ${game.players[0].token}'s turn!`
 
-for(var i = 0; i < allBoxes.length; i++) {
-    allBoxes[i].index = i;
-    allBoxes[i].addEventListener('click', function(event) {
-        game.takeTurn(event.target.index);
-        event.target.innerText = game.gameBoard[event.target.index];
-        game.switchActivePlayer();
-        switchActiveToken();
-        game.checkForWinner();
-        if(game.winner !== undefined && game.turnNumber <=10) {
-            turnDisplay.innerText = `${game.winner} wins!`
-            setTimeout( function() {
-                game.resetBoard();
-                resetScreen();
-            }, 1000);
-        } else if(game.winner === undefined && game.turnNumber === 10) {
-            turnDisplay.innerText = `It's a draw!`;
-            setTimeout( function() {
-                game.resetBoard();
-                resetScreen();
-            }, 1000);
-        };
-        playerOneWins.innerHTML = `${game.players[0].wins} wins!`;
-        playerTwoWins.innerHTML = `${game.players[1].wins} wins!`;
-    }, false);
-};
+allBoxes.forEach(box => box.addEventListener('click', function(event) {
+    var clickedBox = event.target;
+    var clickedBoxIndex = parseInt(clickedBox.getAttribute('id'));
+    game.takeTurn(clickedBoxIndex);
+    clickedBox.innerHTML = game.gameBoard[clickedBoxIndex];
+    displayMessages();
+}))
 
 function resetScreen() {
     for(var i = 0; i < allBoxes.length; i++) {
         allBoxes[i].innerText = '';
     };
-    switchActiveToken();
 };
 
 function switchActiveToken() {
@@ -57,5 +38,27 @@ function switchActiveToken() {
             activeToken = game.players[i].token;
             turnDisplay.innerText = `It's ${activeToken}'s turn!`;
         };
+    };
+};
+
+function displayMessages() {
+    if(game.draw === true) {
+        turnDisplay.innerText = `It's a draw!`;
+        setTimeout(function() {
+            game.resetBoard();
+            resetScreen();
+            switchActiveToken();
+        }, 1500);
+    } else if(game.winner !== undefined) {
+        turnDisplay.innerText = `${game.winner} wins!`;
+        playerOneWins.innerHTML = `${game.players[0].wins} wins!`;
+        playerTwoWins.innerHTML = `${game.players[1].wins} wins!`;
+        setTimeout(function () {
+            game.resetBoard();
+            resetScreen();
+            switchActiveToken();
+        }, 1500);
+    } else {
+        switchActiveToken();
     };
 };
