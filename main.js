@@ -57,3 +57,25 @@ function switchActiveToken() {
         };
     };
 };
+
+function displayMessages() {
+    if(game.draw === true) {
+        turnDisplay.innerText = `It's a draw!`;
+        setTimeout(function() {
+            game.resetBoard();
+            resetScreen();
+            switchActiveToken();
+        }, 1500);
+    } else if(game.winner !== undefined) {
+        turnDisplay.innerText = `${game.winner} wins!`;
+        playerOneWins.innerHTML = `${game.players[0].wins} wins!`;
+        playerTwoWins.innerHTML = `${game.players[1].wins} wins!`;
+        setTimeout(function () {
+            game.resetBoard();
+            resetScreen();
+            switchActiveToken();
+        }, 1500);
+    } else {
+        switchActiveToken();
+    };
+};
