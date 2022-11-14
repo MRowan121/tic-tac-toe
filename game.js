@@ -14,10 +14,12 @@ class Game {
             [2, 4, 6],
         ];
         this.winner = undefined;
+        this.draw = false;
     };
 
     addPlayers(playerDetails) {
         this.players.push(playerDetails)
+        this.players[0].activePlayer = true;
     };
 
     switchActivePlayer() {
