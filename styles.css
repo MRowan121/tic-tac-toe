@@ -96,7 +96,7 @@ img {
 }
 
 .game-board-box img:hover {
-    cursor: not-allowed;
+    cursor: none;
 }
 
 .hidden {
