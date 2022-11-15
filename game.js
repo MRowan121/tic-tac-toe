@@ -15,6 +15,7 @@ class Game {
         ];
         this.winner = undefined;
         this.draw = false;
+        this.lockedBoard = false;
     };
 
     addPlayers(playerDetails) {
@@ -30,7 +31,7 @@ class Game {
 
     takeTurn(num) {
         for(var i = 0; i < this.players.length; i++) {
-            if(this.gameBoard[num] === '' && this.players[i].activePlayer === true) {
+            if(this.gameBoard[num] === '' && this.players[i].activePlayer === true && this.lockedBoard === false) {
                 this.gameBoard.splice(num, 1, this.players[i].token);
                 this.turnNumber ++;
                 this.checkForWinner(this.players[i]);
@@ -49,6 +50,7 @@ class Game {
             if(a === '' || b === '' || c === '') {
             } else if(a === b && b === c) {
                 activePlayer.increaseWins();
+                this.lockedBoard = true;
                 this.winner = activePlayer.token;
             };
         };
@@ -65,5 +67,6 @@ class Game {
         this.gameBoard = ['','','','','','','','',''];
         this.winner = undefined;
         this.draw = false;
+        this.lockedBoard = false;
     };
 };
