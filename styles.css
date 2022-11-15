@@ -18,16 +18,60 @@ body {
     padding-top: 5vh;
 }
 
-.container-middle {
-    width: 50%;
-    background-color: white;
-    padding-top: 10vh;
-    padding-bottom: 5vh;
+img {
+    height: 18vh;
 }
 
-h1 {
-    padding-bottom: 15vh;
+.container-middle {
+    background-image: url(./logos/field.webp);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 50%;
+    background-color: white;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.team-selection {
+    width: 100%;
+    font-size: 5vh;
+    color: white;
+    height: 30vh;
+    padding-bottom: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.team-selection h1 {
+    height: 5vh;
+}
+
+.pick-your-team {
+    padding-top: 5vh;
+}
+
+.pick-your-team img {
+    height: 15vh;
+    transition: 1s;
+}
+
+.pick-your-team img:hover {
+    height: 18vh;
+    cursor: pointer;
+}
+
+.turn-display {
+    height: 30vh;
+    color: white;
     font-size: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .game-board {
@@ -39,17 +83,23 @@ h1 {
     width: 30vw;
     justify-content: center;
     align-content: center;
-    background: black;
 }
 
 .game-board-box {
-    background: white;
+    background-color: rgba(0,0,0,.2);
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 10vh;
     height: 100%;
     width: 100%;
+    cursor: pointer;
+}
+
+.game-board-box img {
+    height: auto;
+    width: inherit;
 }
 
 .container-right {
@@ -57,3 +107,7 @@ h1 {
     font-size: 7vh;
     padding-top: 5vh;
 }
+
+.hidden {
+    display: none!important;
+  }
