@@ -22,9 +22,9 @@ For this project, I built a tic-tac-toe application from scratch. I have been le
 <img width="2556" alt="Screenshot2" src="https://user-images.githubusercontent.com/110955503/201984036-6ba2702e-7ae8-4747-bacd-91d2f04d0002.png">
 
 
-### `Creator: ` Matt Rowan
-1. [GitHub Page](https://github.com/MRowan121)
-2. [LinkedIn Page](https://www.linkedin.com/in/matt-rowan-a88444129/)
+### `Creator Links:`
+1. [GitHub](https://github.com/MRowan121)
+2. [LinkedIn](https://www.linkedin.com/in/matt-rowan-a88444129/)
 
 ### `Context:`
 It took me a roughly 2 days to write the inital JavaScript, 2 days to build out HTML & CSS, and 2 days to refactor as needed for this project. I just completed my fifth week of Mod 1 at Turing School.
