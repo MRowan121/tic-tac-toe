@@ -5,54 +5,50 @@
 }
 
 body {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    text-align: center;
     background-color: dimgray;
-}
-
-.container-left {
-    width: 25%;
-    font-size: 7vh;
-    padding-top: 5vh;
+    color: white;
+    display: flex;
+    height: 100vh;
+    text-align: center;
+    width: 100vw;
 }
 
 img {
     height: 18vh;
 }
 
+.container-left,
+.container-right {
+    font-size: 7vh;
+    padding-top: 5vh;
+    width: 25%;
+}
+
 .container-middle {
+    align-items: center;
     background-image: url(./logos/field.webp);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    width: 50%;
-    background-color: white;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    padding-bottom: 5vh;
+    padding-top: 5vh;
+    width: 50%;
 }
 
 .team-selection {
-    width: 100%;
-    font-size: 5vh;
-    color: white;
-    height: 30vh;
-    padding-bottom: 5vh;
     display: flex;
     flex-direction: column;
+    font-size: 5vh;
+    height: 30vh;
     justify-content: space-between;
+    padding-bottom: 5vh;
+    width: 100%;
 }
 
 .team-selection h1 {
-    height: 5vh;
-}
-
-.pick-your-team {
-    padding-top: 5vh;
+    height: fit-content;
 }
 
 .pick-your-team img {
@@ -61,51 +57,46 @@ img {
 }
 
 .pick-your-team img:hover {
-    height: 18vh;
     cursor: pointer;
+    height: 20vh;
 }
 
 .turn-display {
-    height: 30vh;
-    color: white;
-    font-size: 10vh;
-    display: flex;
-    justify-content: center;
     align-items: center;
+    display: flex;
+    font-size: 10vh;
+    height: 30vh;
+    justify-content: center;
 }
 
 .game-board {
+    align-content: center;
     display: inline-grid;
+    grid-gap: 10px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    grid-gap: 10px;
     height: 50vh;
-    width: 30vw;
     justify-content: center;
-    align-content: center;
+    width: 30vw;
 }
 
 .game-board-box {
-    background-color: rgba(0,0,0,.2);
-    color: #fff;
-    display: flex;
     align-items: center;
-    justify-content: center;
+    background-color: rgba(0,0,0,.2);
+    cursor: pointer;
+    display: flex;
     font-size: 10vh;
     height: 100%;
+    justify-content: center;
     width: 100%;
-    cursor: pointer;
 }
 
 .game-board-box img {
-    height: auto;
-    width: inherit;
+    height: 13vh;
 }
 
-.container-right {
-    width: 25%;
-    font-size: 7vh;
-    padding-top: 5vh;
+.game-board-box img:hover {
+    cursor: not-allowed;
 }
 
 .hidden {
