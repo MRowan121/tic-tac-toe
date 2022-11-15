@@ -1,13 +1,11 @@
-var playerOneToken = document.querySelector('.player-one-token')
-var playerOneWins = document.querySelector('.player-one-wins')
-var turnDisplay = document.querySelector('.turn-display');
-var playField = document.querySelector('.game-board')
-var allBoxes = document.querySelectorAll('.game-board-box');
-var playerTwoToken = document.querySelector('.player-two-token')
-var playerTwoWins = document.querySelector('.player-two-wins')
-var teamLogos = document.querySelector('.team-option');
-var pYT = document.querySelector('.pick-your-team');
+var playerOneToken = document.getElementById('player-one-token')
+var playerOneWins = document.getElementById('player-one-wins')
 var teamSelection = document.querySelector('.team-selection')
+var pickYourTeam = document.querySelector('.pick-your-team');
+var turnDisplay = document.querySelector('.turn-display');
+var allBoxes = document.querySelectorAll('.game-board-box');
+var playerTwoToken = document.getElementById('player-two-token')
+var playerTwoWins = document.getElementById('player-two-wins')
 
 var allLogos = [
     './logos/colts.webp',
@@ -22,16 +20,16 @@ var playerTwo = new Player({id: 'Player Two', token: ''});
 var activeToken;
 
 for(var i = 0; i < allLogos.length; i++) {
-    pYT.innerHTML += `<img src="${allLogos[i]}" id="${i}"/>`
+    pickYourTeam.innerHTML += `<img src="${allLogos[i]}" id="${i}"/>`
 }
 
-pYT.addEventListener('click', function(event) {
+pickYourTeam.addEventListener('click', function(event) {
     var clickedLogo = event.target
     if(playerOne.token === '') {
         playerOneToken.innerHTML = `<img src="${allLogos[clickedLogo.id]}"/>`
         playerOne.token = `<img src="${allLogos[clickedLogo.id]}"/>`;
         playerOneWins.innerHTML = logWins(game.players[0]);
-        pYT.removeChild(clickedLogo)
+        pickYourTeam.removeChild(clickedLogo)
     } else {
         playerTwoToken.innerHTML = `<img src="${allLogos[clickedLogo.id]}"/>`
         playerTwo.token = `<img src="${allLogos[clickedLogo.id]}"/>`;
@@ -46,8 +44,8 @@ function changeScreen() {
     turnDisplay.innerHTML = `${playerOne.token}'s turn!`
 }
 
-game.addPlayers(playerOne);
-game.addPlayers(playerTwo);
+game.addPlayer(playerOne);
+game.addPlayer(playerTwo);
 
 allBoxes.forEach(box => box.addEventListener('click', function(event) {
     var clickedBox = event.target;
