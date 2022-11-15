@@ -81,9 +81,9 @@ function displayMessages() {
             switchActiveToken();
         }, 1500);
     } else if(game.winner !== undefined) {
-        turnDisplay.innerText = `${game.winner} wins!`;
-        playerOneWins.innerHTML = `${game.players[0].wins} wins!`;
-        playerTwoWins.innerHTML = `${game.players[1].wins} wins!`;
+        turnDisplay.innerHTML = `${game.winner} win!`;
+        playerOneWins.innerHTML = logWins(game.players[0]);
+        playerTwoWins.innerHTML = logWins(game.players[1]);
         setTimeout(function () {
             game.resetBoard();
             resetScreen();
@@ -91,5 +91,13 @@ function displayMessages() {
         }, 1500);
     } else {
         switchActiveToken();
+    };
+};
+
+function logWins(player) {
+    if(player.wins === 1) {
+        return `${player.wins} win!`
+    } else {
+        return `${player.wins} wins!`
     };
 };
