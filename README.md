@@ -18,6 +18,8 @@ For this project, I built a tic-tac-toe application from scratch. I have been le
     * VS Code - code .
 
 ### `Preview of App:`
+<img width="2554" alt="Screenshot1" src="https://user-images.githubusercontent.com/110955503/201984010-3714f1a4-3eeb-41c7-ba7a-bb04f373437b.png">
+<img width="2556" alt="Screenshot2" src="https://user-images.githubusercontent.com/110955503/201984036-6ba2702e-7ae8-4747-bacd-91d2f04d0002.png">
 
 
 ### `Creator: ` Matt Rowan
