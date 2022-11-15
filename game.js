@@ -18,8 +18,8 @@ class Game {
         this.lockedBoard = false;
     };
 
-    addPlayers(playerDetails) {
-        this.players.push(playerDetails)
+    addPlayer(playerDetails) {
+        this.players.push(playerDetails);
         this.players[0].activePlayer = true;
     };
 
